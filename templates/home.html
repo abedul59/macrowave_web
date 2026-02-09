@@ -7,38 +7,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f4f6f9; font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #333; }
-        
-        /* 頁首樣式 */
-        .header-section { 
-            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); 
-            color: white; padding: 40px 0; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* 卡片通用樣式 */
+        .header-section { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; padding: 40px 0; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .card { border: none; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 24px; transition: transform 0.2s; overflow: hidden; }
         .card:hover { transform: translateY(-3px); }
         .card-header { font-weight: bold; padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        
-        /* 狀態文字顏色 */
         .status-Safe { color: #198754; font-weight: bold; }
         .status-Warning { color: #fd7e14; font-weight: bold; }
         .status-Danger { color: #dc3545; font-weight: bold; }
         .status-Unknown { color: #6c757d; }
-        
-        /* Mark 17 建議標籤 */
         .advice-badge { padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 1.2rem; }
         .advice-Safe { background-color: #d1e7dd; color: #0f5132; }
         .advice-Caution { background-color: #fff3cd; color: #664d03; }
         .advice-Reduce { background-color: #ffecb5; color: #664d03; border: 2px solid #ffc107; }
         .advice-Flee { background-color: #f8d7da; color: #842029; }
-
-        /* 原始數據小卡片樣式 */
         .metric-item { padding: 12px; border-radius: 8px; background-color: #f8f9fa; border: 1px solid #e9ecef; height: 100%; }
         .metric-label { font-size: 0.85rem; color: #6c757d; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
         .metric-value { font-size: 1.1rem; font-weight: 700; color: #212529; word-break: break-word; }
         .metric-sub { font-size: 0.75rem; color: #adb5bd; margin-top: 2px; }
-        
-        /* 區塊標題顏色條 */
         .section-bar-tw { border-left: 5px solid #0d6efd; }
         .section-bar-us { border-left: 5px solid #dc3545; }
         .section-bar-cycle { border-left: 5px solid #198754; }
@@ -192,25 +177,25 @@
                             <div class="col-6 col-md-3">
                                 <div class="metric-item">
                                     <div class="metric-label">資料日期</div>
-                                    <div class="metric-value">{{ raw_indicators.DATE|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.Date|default:"--" }}</div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
                                 <div class="metric-item">
                                     <div class="metric-label">Mark 17 得分</div>
-                                    <div class="metric-value text-primary">{{ raw_indicators.MARK17_SCORE|default:"--" }}</div>
+                                    <div class="metric-value text-primary">{{ raw_indicators.Mark17_Score|default:"--" }}</div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
                                 <div class="metric-item">
                                     <div class="metric-label">CRB 指數</div>
-                                    <div class="metric-value">{{ raw_indicators.CRB_INDEX|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.CRB_Index|default:"--" }}</div>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
                                 <div class="metric-item">
                                     <div class="metric-label">CRB 半年線</div>
-                                    <div class="metric-value text-muted" style="font-size: 0.9rem;">{{ raw_indicators.CRB_HALFYEAR|default:"N/A" }}</div>
+                                    <div class="metric-value text-muted" style="font-size: 0.9rem;">{{ raw_indicators.CRB_HalfYear|default:"N/A" }}</div>
                                 </div>
                             </div>
                         </div>
@@ -226,27 +211,28 @@
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">台股總市值 (百萬)</div>
-                                    <div class="metric-value text-success">{{ raw_indicators.MV_NUM|default:"--" }}</div>
-                                    <div class="metric-sub">{{ raw_indicators.MV_DATE|default:"" }}</div>
+                                    <div class="metric-value text-success">{{ raw_indicators.MV_Num|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.MV_Date|default:"" }}</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">市值貨幣比</div>
-                                    <div class="metric-value">{{ raw_indicators.MV_RATIO|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.MV_Ratio|default:"--" }}</div>
                                     <div class="metric-sub">巴菲特指標參考</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">M1B 年增率 (YoY)</div>
-                                    <div class="metric-value">{{ raw_indicators.M1B_YOY|default:"--" }}%</div>
+                                    <div class="metric-value">{{ raw_indicators.M1b_YoY|default:"--" }}%</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">M1B 數值 (億)</div>
-                                    <div class="metric-value">{{ raw_indicators.M1B_NUM|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.M1b_Num|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.M1b_Date|default:"" }}</div>
                                 </div>
                             </div>
                         </div>
@@ -274,8 +260,8 @@
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">長短利差 (10Y-3M)</div>
-                                    <div class="metric-value {% if raw_indicators.SPREAD_3M_10Y|first == '-' %}text-danger{% endif %}">
-                                        {{ raw_indicators.SPREAD_3M_10Y|default:"--" }}
+                                    <div class="metric-value {% if raw_indicators.Spread_3M_10Y|first == '-' %}text-danger{% endif %}">
+                                        {{ raw_indicators.Spread_3M_10Y|default:"--" }}
                                     </div>
                                     <div class="metric-sub">負值代表倒掛</div>
                                 </div>
@@ -283,8 +269,8 @@
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">衰退機率 (Recession)</div>
-                                    <div class="metric-value text-danger">{{ raw_indicators.RECESSION_PROB|default:"--" }}</div>
-                                    <div class="metric-sub">{{ raw_indicators.RECESSION_DATE|default:"" }}</div>
+                                    <div class="metric-value text-danger">{{ raw_indicators.Recession_Prob|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.Recession_Date|default:"" }}</div>
                                 </div>
                             </div>
                         </div>
@@ -300,21 +286,21 @@
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">中國 PMI (製造業)</div>
-                                    <div class="metric-value">{{ raw_indicators.CHINA_PMI|default:"--" }}</div>
-                                    <div class="metric-sub">{{ raw_indicators.CHINA_PMI_DATE|default:"" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.China_PMI|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.China_PMI_Date|default:"" }}</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">美國失業率</div>
-                                    <div class="metric-value">{{ raw_indicators.UNEMPLOYMENT|default:"--" }}%</div>
+                                    <div class="metric-value">{{ raw_indicators.Unemployment|default:"--" }}%</div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="metric-item">
                                     <div class="metric-label">美國領先指標 (LEI)</div>
-                                    <div class="metric-value">{{ raw_indicators.LEADING_INDEX|default:"--" }}</div>
-                                    <div class="metric-sub">{{ raw_indicators.LEADING_INDEX_DATE|default:"Latest" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.Leading_Index|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.Leading_Index_Date|default:"Latest" }}</div>
                                 </div>
                             </div>
                         </div>
@@ -330,20 +316,20 @@
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">密大消費者信心</div>
-                                    <div class="metric-value">{{ raw_indicators.MICHIGAN_INDEX|default:"--" }}</div>
-                                    <div class="metric-sub">{{ raw_indicators.MICHIGAN_DATE|default:"" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.Michigan_Index|default:"--" }}</div>
+                                    <div class="metric-sub">{{ raw_indicators.Michigan_Date|default:"" }}</div>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="metric-item">
                                     <div class="metric-label">耐久財新訂單 (YoY)</div>
-                                    <div class="metric-value">{{ raw_indicators.DURABLE_YOY_NEW|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.Durable_YoY_New|default:"--" }}</div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="metric-item">
                                     <div class="metric-label">扣除國防耐久財 (YoY)</div>
-                                    <div class="metric-value">{{ raw_indicators.DURABLE_YOY_OLD|default:"--" }}</div>
+                                    <div class="metric-value">{{ raw_indicators.Durable_YoY_Old|default:"--" }}</div>
                                 </div>
                             </div>
                         </div>
